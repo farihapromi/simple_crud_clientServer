@@ -11,6 +11,19 @@ function App() {
     const email=e.target.email.value;
     const user={name,email}
     console.log(user)
+    //fetch
+    fetch('http://localhost:5000/users',{
+      method:'POST',
+      headers:{
+       'content-type':"application/json"
+      },
+      body:JSON.stringify(user)
+      
+    })
+    .then(res=>console.log(res.json()))
+    .catch(error=>{
+      console.log(error)
+    })
   }
 
   return (
