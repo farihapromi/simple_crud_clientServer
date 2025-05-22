@@ -15,12 +15,20 @@ function App() {
     fetch('http://localhost:5000/users',{
       method:'POST',
       headers:{
-       'content-type':"application/json"
+       'Content-type':"application/json"
       },
       body:JSON.stringify(user)
       
     })
-    .then(res=>console.log(res.json()))
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      if(data.insertedId){
+        alert('user added successfully')
+        form.reset()
+
+      }
+    })
     .catch(error=>{
       console.log(error)
     })
